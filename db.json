@@ -1,0 +1,54 @@
+{
+  "treks": [
+    {
+      "id": "harishchandragad",
+      "name": "Harishchandragad",
+      "price": 1399,
+      "status": "active",
+      "route": "Pune → Harishchandragad",
+      "difficulty": "Moderate",
+      "duration": "1 Day",
+      "totalSeats": 15,
+      "subtitle": "HARISHCHANDRA GAD",
+      "description": "NA",
+      "image": ""
+    },
+    {
+      "id": "ratangad",
+      "name": "Ratangad",
+      "price": 1399,
+      "status": "active",
+      "route": "Pune → Ratangad",
+      "difficulty": "Moderate",
+      "duration": "1 Day",
+      "totalSeats": 25
+    },
+    {
+      "id": "rajgad",
+      "name": "Rajgad",
+      "price": 1299,
+      "status": "coming-soon",
+      "route": "Pune → Rajgad",
+      "difficulty": "Moderate",
+      "duration": "Coming Soon",
+      "totalSeats": 15,
+      "subtitle": "KAS PATHAR AND ORHER TREKS ARE INCLUDE",
+      "description": "NA",
+      "image": ""
+    },
+    {
+      "id": "1",
+      "name": "KAS PATHAR & AJINKYATARA FORT",
+      "price": 1499,
+      "totalSeats": 15,
+      "status": "active",
+      "route": "",
+      "difficulty": "",
+      "duration": "",
+      "subtitle": "KAS PATHAR AND ORHER TREKS ARE INCLUDE",
+      "description": "NA",
+      "image": ""
+    }
+  ],
+  "bookings": []
+}
