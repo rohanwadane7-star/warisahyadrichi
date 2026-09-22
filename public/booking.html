@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Trek | Wari Sahyadrichi</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Wari Sahyadrichi logo">
+        <span>वारी</span> सह्याद्रीची
+    </div>
+
+    <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="treks.html">Treks</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+</header>
+
+
+<section class="booking-section">
+
+    <div class="booking-container">
+
+        <div class="booking-info">
+
+            <p>START YOUR ADVENTURE</p>
+
+            <h1>Book Your<br><span>Trek</span></h1>
+
+            <p>
+                Fill the form and our team will contact you
+                with trek details, pickup point and payment information.
+            </p>
+
+            <div class="booking-details">
+                <p>📞 9322312607</p>
+                <p>📸 @warisahyadrichi</p>
+            </div>
+
+        </div>
+
+
+        <form class="booking-form"
+              onsubmit="sendBooking(event)">
+
+            <h2>Trek Booking</h2>
+
+            <div class="form-grid">
+                <div>
+                    <label>Full Name *</label>
+                    <input type="text" id="name" placeholder="Enter your full name" autocomplete="name" required>
+                </div>
+
+                <div>
+                    <label>Mobile Number *</label>
+                    <input type="tel" id="mobile" placeholder="10-digit mobile number" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+
+                <div>
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+                </div>
+
+                <div>
+                    <label>Preferred Date *</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div>
+                    <label>Select Trek *</label>
+                    <select id="trek" required>
+                        <option value="">Loading treks...</option>
+                    </select>
+                    <small id="seatInfo" style="display:block;margin-top:6px;color:#667;"></small>
+                </div>
+
+                <div>
+                    <label>Pickup Location</label>
+                    <select id="pickup">
+                        <option value="Pune">Pune</option>
+                        <option value="Baramati">Baramati</option>
+                        <option value="Other / Confirm Later">Other / Confirm Later</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Participants *</label>
+                    <input type="number" id="participants" min="1" max="20" value="1" required>
+                </div>
+
+                <div>
+                    <label>Emergency Contact</label>
+                    <input type="tel" id="emergency" placeholder="Emergency contact number" inputmode="numeric" pattern="[0-9]{10}" maxlength="10">
+                </div>
+            </div>
+
+            <label>Message / Special Requirement</label>
+            <textarea id="message" placeholder="Any special requirement, food preference, or note?"></textarea>
+
+            <div class="form-note">
+                <span>🔒</span> Your details are used only to coordinate your trek booking.
+            </div>
+
+            <button type="submit">Send Booking Request on WhatsApp</button>
+        </form>
+
+    </div>
+
+</section>
+
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.getElementById('mainNav');
+menuToggle?.addEventListener('click', () => {
+    const open = mainNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+});
+mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+}));
+
+const dateInput = document.getElementById('date');
+if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+let trekData=[];
+async function loadTreks(){
+  try{
+    const r=await fetch('/api/treks'); trekData=await r.json();
+    const select=document.getElementById('trek');
+    select.innerHTML='<option value="">Select Trek</option>'+trekData.map(t=>`<option value="${escapeHtml(t.name)} - ₹${Number(t.price)||0}" data-id="${escapeHtml(t.id)}" ${t.status!=='active'?'disabled':''}>${escapeHtml(t.name)} - ${t.status==='active'?'₹'+(Number(t.price)||0):'Coming Soon'}</option>`).join('');
+    updateSeatInfo();
+  }catch(e){document.getElementById('trek').innerHTML='<option value="">Could not load treks</option>';}
+}
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function updateSeatInfo(){
+  const selected=trekData.find(t=>t.name===document.getElementById('trek').value.split(' - ₹')[0]);
+  const info=document.getElementById('seatInfo');
+  if(selected&&selected.status==='active') info.textContent=`Capacity: ${Number(selected.totalSeats)||0} seats per date. Final availability is checked when you submit.`; else info.textContent='';
+}
+document.getElementById('trek').addEventListener('change',updateSeatInfo);
+loadTreks();
+
+async function sendBooking(event) {
+    event.preventDefault();
+    const button = event.target.querySelector('button[type="submit"]');
+    const values = {
+        name: document.getElementById('name').value.trim(),
+        mobile: document.getElementById('mobile').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        date: document.getElementById('date').value,
+        trek: document.getElementById('trek').value,
+        pickup: document.getElementById('pickup').value,
+        participants: Number(document.getElementById('participants').value),
+        emergency: document.getElementById('emergency').value.trim(),
+        message: document.getElementById('message').value.trim()
+    };
+    if (!/^[0-9]{10}$/.test(values.mobile)) return alert('Please enter a valid 10-digit mobile number.');
+    if (!values.date) return alert('Please select a trek date.');
+
+    button.disabled = true;
+    button.textContent = 'Saving Booking...';
+    try {
+        const response = await fetch('/api/bookings', {
+            method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(values)
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Booking failed');
+
+        const formattedDate = new Date(values.date + 'T00:00:00').toLocaleDateString('en-IN', {
+            day:'2-digit', month:'short', year:'numeric'
+        });
+        const whatsappMessage = [
+            'Hello Wari Sahyadrichi,','',
+            `Booking ID: ${result.booking.id}`,'I want to book a trek.','',
+            `Name: ${values.name}`,`Mobile: ${values.mobile}`,`Email: ${values.email || 'Not provided'}`,
+            `Trek: ${values.trek}`,`Preferred Date: ${formattedDate}`,`Pickup Location: ${values.pickup}`,
+            `Participants: ${values.participants}`,`Emergency Contact: ${values.emergency || 'Not provided'}`,
+            `Message: ${values.message || 'None'}`
+        ].join('\n');
+        alert(`Booking saved successfully!\nBooking ID: ${result.booking.id}`);
+        window.open(`https://wa.me/919322312607?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener');
+        event.target.reset();
+        dateInput.min = new Date().toISOString().split('T')[0];
+    } catch (error) {
+        alert(error.message || 'Could not save booking. Please try again.');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Send Booking Request on WhatsApp';
+    }
+}
+</script>
+
+</body>
+</html>

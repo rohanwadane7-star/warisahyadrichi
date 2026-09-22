@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treks | Wari Sahyadrichi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Wari Sahyadrichi logo">
+        <span>वारी</span> सह्याद्रीची
+    </div>
+
+    <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="treks.html">Treks</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <a href="booking.html" class="nav-btn">Book Trek</a>
+</header>
+
+
+<section class="treks-page">
+
+    <div class="section-heading">
+        <p>DISCOVER SAHYADRI</p>
+        <h1>Upcoming Treks</h1>
+    </div>
+
+    <div class="trek-container" id="allTreks">
+        <div class="trek-card"><div class="trek-info"><p>Loading treks...</p></div></div>
+    </div>
+
+    <div class="center-cta">
+        <a href="booking.html" class="primary-btn">Book Your Adventure</a>
+    </div>
+
+</section>
+
+
+<footer>
+    <div class="logo">वारी सह्याद्रीची</div>
+
+    <p>© 2026 Wari Sahyadrichi. All Rights Reserved.</p>
+</footer>
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.getElementById('mainNav');
+menuToggle?.addEventListener('click', () => {
+    const open = mainNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+});
+mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+}));
+</script>
+<script>
+async function loadTreks() {
+    const box = document.getElementById('allTreks');
+    try {
+        const response = await fetch('/api/treks');
+        if (!response.ok) throw new Error();
+        const treks = await response.json();
+        box.innerHTML = treks.map(t => {
+            const image = ({harishchandragad:'images/sahyadri-02.jpeg',ratangad:'images/sahyadri-04.jpeg',rajgad:'images/sahyadri-06.jpeg'})[t.id] || 'images/sahyadri-01.jpeg';
+            const active = t.status === 'active';
+            return `<div class="trek-card">
+                <div class="trek-image" style="background-image:url('${image}')"></div>
+                <div class="trek-info">
+                    <span>${active ? 'WEEKEND TREK' : 'COMING SOON'}</span>
+                    <h3>${esc(t.name)}</h3>
+                    <p>Explore ${esc(t.name)} and experience the beauty of Sahyadri.</p>
+                    <p><b>📍 ${esc(t.route || `Pune → ${t.name}`)}</b></p>
+                    <div class="trek-bottom">
+                        <strong>${Number(t.price)>0 ? '₹'+Number(t.price) : 'Coming Soon'}</strong>
+                        <a href="trek-details.html?trek=${encodeURIComponent(t.id)}">View Details →</a>
+                    </div>
+                </div>
+            </div>`;
+        }).join('') || '<div class="trek-card"><div class="trek-info"><h3>No treks available</h3></div></div>';
+    } catch(e) {
+        box.innerHTML = '<div class="trek-card"><div class="trek-info"><p>Unable to load treks. Please refresh.</p></div></div>';
+    }
+}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+loadTreks();
+</script>
+</body>
+</html>

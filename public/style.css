@@ -1,0 +1,933 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f5f0e4;
+    color: #24301f;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #142414;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+}
+
+.logo span {
+    color: #f28c18;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #f28c18;
+}
+
+.nav-btn {
+    background: #f28c18;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    background:
+        linear-gradient(rgba(10,15,8,0.45), rgba(10,15,8,0.65)),
+        url("images/sahyadri-01.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.small-title {
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 25px;
+    color: #f6a23a;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 9vw, 120px);
+    line-height: 0.9;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #f28c18;
+}
+
+.hero-text {
+    margin: 30px 0;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn,
+.secondary-btn,
+.instagram-btn {
+    display: inline-block;
+    padding: 15px 27px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.primary-btn {
+    background: #f28c18;
+    color: #142414;
+}
+
+.secondary-btn {
+    border: 1px solid white;
+    color: white;
+}
+
+
+/* COMMON */
+
+.treks,
+.about,
+.why,
+.gallery,
+.contact {
+    padding: 100px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading p,
+.section-label {
+    color: #d96f0b;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+}
+
+
+/* TREKS */
+
+.trek-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.trek-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.trek-image {
+    height: 270px;
+    background-size: cover;
+    background-position: center;
+}
+
+.harishchandragad {
+    background-image: url("images/sahyadri-02.jpeg");
+}
+
+.ratangad {
+    background-image: url("images/sahyadri-04.jpeg");
+}
+
+.rajgad {
+    background-image: url("images/sahyadri-06.jpeg");
+}
+
+.trek-info {
+    padding: 25px;
+}
+
+.trek-info span {
+    font-size: 10px;
+    color: #d96f0b;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.trek-info h3 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.trek-info p {
+    color: #5d6257;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.trek-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.trek-bottom strong {
+    font-size: 20px;
+}
+
+.trek-bottom a {
+    color: #c65e08;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+
+/* ABOUT */
+
+.about {
+    background: #172016;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image {
+    min-height: 550px;
+    border-radius: 15px;
+    background:
+        url("images/sahyadri-05.jpeg")
+        center / cover;
+}
+
+.about-content h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.about-content h2 span {
+    color: #f28c18;
+}
+
+.about-content p {
+    color: #e2e1d7;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+
+/* WHY */
+
+.why-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.why-card div {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.why-card h3 {
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #6f7469;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* GALLERY */
+
+.gallery {
+    background: #eee8da;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.image1 {
+    background-image: url("images/sahyadri-01.jpeg");
+}
+
+.image2 {
+    background-image: url("images/sahyadri-02.jpeg");
+}
+
+.image3 {
+    background-image: url("images/sahyadri-03.jpeg");
+}
+
+.image4 {
+    background-image: url("images/sahyadri-04.jpeg");
+}
+
+.image5 {
+    background-image: url("images/sahyadri-05.jpeg");
+}
+
+.image6 {
+    background-image: url("images/sahyadri-06.jpeg");
+}
+
+
+/* COMMUNITY */
+
+.community {
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(15,22,12,0.65), rgba(15,22,12,0.8)),
+        url("images/sahyadri-06.jpeg")
+        center / cover;
+}
+
+.community-content {
+    max-width: 700px;
+}
+
+.community-content > p:first-child {
+    color: #f28c18;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.community h2 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.community h2 span {
+    color: #f28c18;
+}
+
+.community-content p {
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.instagram-btn {
+    background: #d0a149;
+    color: #142414;
+}
+
+
+/* CONTACT */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.contact-container p {
+    color: #6f7469;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.contact-container a {
+    font-weight: 700;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #142414;
+    color: white;
+    padding: 35px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    color: #a8aa9e;
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .trek-container,
+    .why-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 10% 6%;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 180px;
+    }
+
+    .treks,
+    .about,
+    .why,
+    .gallery,
+    .contact {
+        padding: 70px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .trek-container,
+    .why-container,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        min-height: 350px;
+    }
+
+    .about-content h2 {
+        font-size: 38px;
+    }
+
+    .community h2 {
+        font-size: 40px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* ===== WARI SAHYADRICHi - REFERENCE COLOR THEME ===== */
+
+body {
+    background: #f5f0e4;
+    color: #24301f;
+}
+
+.navbar {
+    background: #142414;
+}
+
+.logo span {
+    color: #f28c18;
+}
+
+nav a:hover {
+    color: #f28c18;
+}
+
+.nav-btn,
+.primary-btn,
+.instagram-btn {
+    background: #f28c18;
+    color: #142414;
+}
+
+.secondary-btn {
+    border-color: #f5f0e4;
+    color: #f5f0e4;
+}
+
+.section-heading p,
+.section-label {
+    color: #d96f0b;
+}
+
+.section-heading h2 {
+    color: #24301f;
+}
+
+.trek-card,
+.why-card,
+.contact-container {
+    background: #fffdf8;
+}
+
+.trek-card {
+    box-shadow: 0 12px 30px rgba(20, 36, 20, 0.10);
+}
+
+.trek-info span,
+.trek-bottom a {
+    color: #c65e08;
+}
+
+.about {
+    background: #1d321d;
+}
+
+.community {
+    background-color: #142414;
+}
+
+.gallery {
+    background: #eee8da;
+}
+
+.instagram-btn {
+    color: #142414;
+}
+
+.contact-container {
+    box-shadow: 0 10px 28px rgba(20, 36, 20, 0.07);
+}
+
+footer {
+    background: #142414;
+}
+
+@media (max-width: 600px) {
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* ===== POLISHED INTERACTIONS & RESPONSIVE DESIGN ===== */
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.nav-btn,
+.primary-btn,
+.secondary-btn,
+.instagram-btn,
+.trek-bottom a,
+.gallery-item,
+.why-card,
+.trek-card {
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+.nav-btn:hover,
+.primary-btn:hover,
+.instagram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(242, 140, 24, .24);
+}
+
+.secondary-btn:hover {
+    background: #f28c18;
+    border-color: #f28c18;
+    color: #142414;
+}
+
+.trek-card:hover,
+.why-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 38px rgba(20, 36, 20, .15);
+}
+
+.trek-image {
+    transition: transform .5s ease;
+}
+
+.trek-card:hover .trek-image {
+    transform: scale(1.035);
+}
+
+.trek-bottom a:hover {
+    color: #f28c18;
+    transform: translateX(3px);
+}
+
+.center-cta {
+    text-align: center;
+    margin-top: 45px;
+}
+
+/* Clickable gallery + lightbox */
+.gallery-item {
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item::after {
+    content: 'View photo';
+    position: absolute;
+    inset: auto 15px 15px auto;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: rgba(20,36,20,.78);
+    color: #fff;
+    font: 700 11px/1 Montserrat, sans-serif;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: .25s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(20,36,20,.18);
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(7, 12, 7, .92);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: min(1100px, 94vw);
+    max-height: 88vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 70px rgba(0,0,0,.45);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: #f28c18;
+    color: #142414;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Contact now supports four blocks */
+.contact-container {
+    grid-template-columns: 2fr repeat(3, 1fr);
+}
+
+/* Trek details page */
+.detail-page {
+    background: #f5f0e4;
+}
+
+.detail-hero {
+    min-height: 58vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+}
+
+.detail-overlay {
+    width: 100%;
+    padding: 8% 7%;
+}
+
+.detail-overlay h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 1;
+    margin: 10px 0 15px;
+}
+
+.detail-overlay p:last-child {
+    max-width: 700px;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.detail-content {
+    max-width: 1180px;
+    margin: auto;
+    padding: 90px 7%;
+    display: grid;
+    grid-template-columns: 1.7fr .8fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.detail-main h2 {
+    font-size: 42px;
+    margin-bottom: 22px;
+}
+
+.detail-main > p:not(.section-label) {
+    color: #5d6257;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.detail-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 35px 0 45px;
+}
+
+.detail-stats div {
+    background: #fffdf8;
+    border-radius: 12px;
+    padding: 20px 14px;
+    box-shadow: 0 8px 22px rgba(20,36,20,.07);
+}
+
+.detail-stats span,
+.detail-stats strong,
+.detail-stats small {
+    display: block;
+}
+
+.detail-stats span { font-size: 22px; margin-bottom: 10px; }
+.detail-stats strong { font-size: 14px; }
+.detail-stats small { margin-top: 5px; color: #777; font-size: 11px; }
+
+.detail-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.detail-columns h3 { margin-bottom: 15px; }
+.detail-columns ul { padding-left: 20px; color: #5d6257; line-height: 1.9; }
+
+.detail-cta {
+    position: sticky;
+    top: 105px;
+    background: #142414;
+    color: #fff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 18px 40px rgba(20,36,20,.16);
+}
+
+.detail-cta > p:first-child {
+    color: #f28c18;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.detail-cta h3 { font-size: 28px; margin: 13px 0; }
+.detail-cta p:not(:first-child) { color: #dfe4d9; line-height: 1.8; font-size: 13px; margin-bottom: 25px; }
+.detail-back { display: block; margin-top: 22px; color: #f6a23a; font-weight: 700; font-size: 13px; }
+
+footer {
+    padding: 35px 7%;
+    background: #142414;
+    color: #fff;
+    text-align: center;
+}
+
+footer .logo { justify-content: center; margin-bottom: 10px; }
+footer p { color: #cfd5ca; font-size: 12px; }
+
+@media (max-width: 900px) {
+    .navbar { padding: 0 5%; }
+    nav { gap: 18px; }
+    .trek-container { grid-template-columns: repeat(2, 1fr); }
+    .why-container { grid-template-columns: repeat(2, 1fr); }
+    .about { grid-template-columns: 1fr; gap: 35px; }
+    .about-image { min-height: 420px; }
+    .contact-container { grid-template-columns: repeat(2, 1fr); }
+    .detail-content { grid-template-columns: 1fr; }
+    .detail-cta { position: static; }
+}
+
+@media (max-width: 700px) {
+    .navbar { height: 70px; }
+    .logo { font-size: 18px; }
+    .logo img { width: 38px; height: 38px; }
+    .nav-btn { display: none; }
+    .menu-toggle { display: block; }
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 5%;
+        background: #142414;
+        border-top: 1px solid rgba(255,255,255,.08);
+    }
+    nav.open { display: flex; }
+    nav a { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+
+    .hero { min-height: 82vh; padding: 16% 6%; }
+    .hero h1 { font-size: clamp(54px, 17vw, 82px); }
+    .hero-text { font-size: 14px; }
+    .hero-buttons { flex-direction: column; align-items: flex-start; }
+    .primary-btn, .secondary-btn, .instagram-btn { padding: 13px 20px; }
+
+    .treks, .about, .why, .gallery, .contact { padding: 70px 6%; }
+    .section-heading { margin-bottom: 38px; }
+    .section-heading h2 { font-size: 32px; }
+    .trek-container, .why-container, .gallery-grid { grid-template-columns: 1fr; }
+    .trek-image { height: 245px; }
+    .about-image { min-height: 330px; }
+    .about-content h2 { font-size: 36px; }
+    .community { min-height: 470px; padding: 50px 6%; }
+    .community h2 { font-size: 40px; }
+    .contact-container { grid-template-columns: 1fr; padding: 28px; }
+
+    .detail-hero { min-height: 50vh; }
+    .detail-overlay { padding: 12% 6%; }
+    .detail-overlay h1 { font-size: 48px; }
+    .detail-content { padding: 65px 6%; }
+    .detail-main h2 { font-size: 32px; }
+    .detail-stats { grid-template-columns: repeat(2, 1fr); }
+    .detail-columns { grid-template-columns: 1fr; }
+}

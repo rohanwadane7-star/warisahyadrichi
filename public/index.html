@@ -1,1 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wari Sahyadrichi | Explore The Sahyadri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
 
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Wari Sahyadrichi logo">
+        <span>वारी</span> सह्याद्रीची
+    </div>
+
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#treks">Treks</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <a href="booking.html" class="nav-btn">Book Trek</a>
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <p class="small-title">EXPLORE • TREK • EXPERIENCE</p>
+        <br>
+        <h1>वारी<br><span>सह्याद्रीची</span></h1>
+
+        <p class="hero-text">
+            Walk beyond the ordinary.<br>
+            Discover the beauty, history and adventure of Sahyadri.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#treks" class="primary-btn">Explore Treks</a>
+            <a href="#about" class="secondary-btn">Know More</a>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="treks" id="treks">
+
+    <div class="section-heading">
+        <p>UPCOMING ADVENTURES</p>
+        <h2>Explore Our Treks</h2>
+    </div>
+
+    <div class="trek-container" id="homeTreks">
+        <div class="trek-card"><div class="trek-info"><p>Loading treks...</p></div></div>
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+    <div class="about-image"></div>
+
+    <div class="about-content">
+
+        <p class="section-label">WHO WE ARE</p>
+
+        <h2>Not Just A Trek.<br>It's A <span>Journey.</span></h2>
+
+        <p>
+            वारी सह्याद्रीची is a trekking and travel community
+            created for people who want to explore the mountains,
+            forts, trails and stories of Maharashtra.
+        </p>
+
+        <p>
+            From beginners to experienced trekkers, we bring people
+            together to experience the Sahyadri with adventure,
+            safety and unforgettable memories.
+        </p>
+
+        <a href="#contact" class="primary-btn">Join Our Community</a>
+
+    </div>
+
+</section>
+
+
+<section class="why">
+
+    <div class="section-heading">
+        <p>WHY US</p>
+        <h2>Why Wari Sahyadrichi?</h2>
+    </div>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <div>🥾</div>
+            <h3>Experienced Leaders</h3>
+            <p>Guidance and support throughout your trek.</p>
+        </div>
+
+        <div class="why-card">
+            <div>🛡️</div>
+            <h3>Safety First</h3>
+            <p>We focus on responsible and safe trekking.</p>
+        </div>
+
+        <div class="why-card">
+            <div>🏔️</div>
+            <h3>Real Experiences</h3>
+            <p>Explore the Sahyadri beyond the usual tourist spots.</p>
+        </div>
+
+        <div class="why-card">
+            <div>🤝</div>
+            <h3>Strong Community</h3>
+            <p>Meet new people and create unforgettable memories.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="gallery" id="gallery">
+
+    <div class="section-heading">
+        <p>OUR MEMORIES</p>
+        <h2>From The Trails</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+        <button class="gallery-item image1" type="button" aria-label="Open gallery photo 1" data-image="images/sahyadri-01.jpeg"></button>
+        <button class="gallery-item image2" type="button" aria-label="Open gallery photo 2" data-image="images/sahyadri-02.jpeg"></button>
+        <button class="gallery-item image3" type="button" aria-label="Open gallery photo 3" data-image="images/sahyadri-03.jpeg"></button>
+        <button class="gallery-item image4" type="button" aria-label="Open gallery photo 4" data-image="images/sahyadri-04.jpeg"></button>
+        <button class="gallery-item image5" type="button" aria-label="Open gallery photo 5" data-image="images/sahyadri-05.jpeg"></button>
+        <button class="gallery-item image6" type="button" aria-label="Open gallery photo 6" data-image="images/sahyadri-06.jpeg"></button>
+
+    </div>
+
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image">&times;</button>
+    <img id="lightboxImage" src="" alt="Sahyadri trek photo">
+</div>
+
+<section class="community">
+
+    <div class="community-content">
+
+        <p>JOIN THE JOURNEY</p>
+
+        <h2>Let's Walk The<br><span>Sahyadri Together.</span></h2>
+
+        <p>
+            Follow us for upcoming treks, adventures,
+            travel stories and Sahyadri updates.
+        </p>
+
+        <a href="https://instagram.com/warisahyadrichi"
+           target="_blank"
+           class="instagram-btn">
+            Instagram @warisahyadrichi
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <div class="section-heading">
+        <p>GET IN TOUCH</p>
+        <h2>Start Your Adventure</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <div>
+            <h3>Wari Sahyadrichi</h3>
+            <p>Explore. Trek. Experience.</p>
+        </div>
+
+        <div>
+            <p>📞 Contact</p>
+            <a href="tel:9322312607">9322312607</a>
+        </div>
+
+        <div>
+            <p>📸 Instagram</p>
+            <a href="https://instagram.com/warisahyadrichi" target="_blank" rel="noopener">
+                @warisahyadrichi
+            </a>
+        </div>
+
+        <div>
+            <p>💬 WhatsApp</p>
+            <a href="https://wa.me/919322312607" target="_blank" rel="noopener">
+                Chat with us
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    <div class="logo">वारी सह्याद्रीची</div>
+
+    <p>© 2026 Wari Sahyadrichi. All Rights Reserved.</p>
+</footer>
+
+<script>
+async function loadHomeTreks() {
+    const box = document.getElementById('homeTreks');
+    if (!box) return;
+    try {
+        const response = await fetch('/api/treks');
+        if (!response.ok) throw new Error('Failed to load treks');
+        const treks = await response.json();
+        box.innerHTML = treks.length ? treks.map(t => {
+            const image = ({
+                harishchandragad: 'images/sahyadri-02.jpeg',
+                ratangad: 'images/sahyadri-04.jpeg',
+                rajgad: 'images/sahyadri-06.jpeg'
+            })[t.id] || 'images/sahyadri-01.jpeg';
+            const isActive = t.status === 'active';
+            const price = Number(t.price) > 0 ? `₹${Number(t.price)}` : 'Coming Soon';
+            const label = isActive ? 'WEEKEND TREK' : 'COMING SOON';
+            const route = t.route || `Pune → ${t.name}`;
+            return `<div class="trek-card">
+                <div class="trek-image" style="background-image:url('${image}')"></div>
+                <div class="trek-info">
+                    <span>${label}</span>
+                    <h3>${escapeHtml(t.name)}</h3>
+                    <p>Explore ${escapeHtml(t.name)} and experience the beauty of Sahyadri.</p>
+                    <p><b>📍 ${escapeHtml(route)}</b></p>
+                    <div class="trek-bottom">
+                        <strong>${price}</strong>
+                        <a href="trek-details.html?trek=${encodeURIComponent(t.id)}">View Details →</a>
+                    </div>
+                </div>
+            </div>`;
+        }).join('') : '<div class="trek-card"><div class="trek-info"><h3>No treks available</h3><p>New treks will appear here.</p></div></div>';
+    } catch (error) {
+        box.innerHTML = '<div class="trek-card"><div class="trek-info"><p>Unable to load treks. Please refresh the page.</p></div></div>';
+    }
+}
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+loadHomeTreks();
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.getElementById('mainNav');
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+        const open = mainNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', open);
+    });
+    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+}
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+        lightboxImage.src = item.dataset.image;
+        lightbox.classList.add('show');
+        lightbox.setAttribute('aria-hidden', 'false');
+    });
+});
+function closeLightbox() {
+    lightbox.classList.remove('show');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+}
+document.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
